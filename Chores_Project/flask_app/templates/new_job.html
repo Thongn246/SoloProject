@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+        <title>Add A Job</title>
+
+    </head>
+
+    <body>
+
+        <div class="container">
+            
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p>{{message}}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+            <div class="nav_bar">
+                <div>
+                </div>
+                <div>
+                    <a href="/jobs">Back</a>
+                </div>
+                <div>
+                    <button><a class="btn" href="/logout">Logout</a></button>
+                </div>
+            </div>
+
+            <div class="col2">
+                <form action="/create" method="POST">
+                    <h1>Add a Job</h1>
+                    <div class="new_job">
+                        <h4>Title</h4>
+                        <input type="text" name="title">
+                    </div>
+                    <div class="new_job">
+                        <h4>Description</h4>
+                        <textarea name="description"></textarea>
+                    </div>
+                    <div class="new_job">
+                        <h4>Location </h4>
+                        <input type="text" name="location">
+                    </div>
+                    <button class="submit">Submit</button>
+                </form>
+            </div>
+    
+        </div>
+    
+    </body>
+    
+</html>

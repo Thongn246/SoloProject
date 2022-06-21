@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>Chore Tracker Dashboard</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="nav_bar">
+            <div>
+                <h1>Welcome {{users.first_name}}!</h1>
+            </div>
+            <div>
+                <button><a class="btn" href="/logout">Logout</a></button>
+            </div>
+            <div>
+                <a href="/jobs/new">Add A Job</a>
+            </div>
+        </div>
+        
+        <div class="col">
+            <div class="col2">
+                <div class="jobs">
+                    <table border="2px solid black">
+                        <tbody>
+                            <tr>
+                                <th>Job</th>
+                                <th>Location</th>
+                                <th>Action</th>
+                            </tr>
+                            {% for jobs in jobs %}
+                            <tr>
+                                <td>{{jobs.title}}</td>
+                                <td>{{jobs.location}}</td>
+                                <td>
+                                    <a href="jobs/{{jobs.id}}">View</a>
+                                    {% if jobs.user_id == session.user_id %}
+                                    <a href="/jobs/{{jobs.id}}/edit">edit</a>
+                                    <a href="/delete/{{jobs.id}}">cancel</a>
+                                    {% endif %}
+                                </td>
+                                </div>
+                            {% endfor %}
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col3">
+                <h2>My Jobs ...</h2>
+                <div class="jobs">
+                    {% for jobs in accepted_jobs %}
+                    <div class="border">
+                        <div>
+                            <p>
+                                {{jobs.title}}      <a href="jobs/{{jobs.id}}">View</a> <a href="/delete/{{jobs.id}}">Done</a>
+                            </p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
+

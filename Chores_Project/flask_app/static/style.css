@@ -1,0 +1,50 @@
+* {
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 1200px;
+    margin: auto;
+    padding: auto;
+}
+
+.login, .register {
+    margin: 20px 0;
+}
+
+button {
+    color: rgb(0, 0, 0);
+    border: 2px solid rgb(0, 0, 0);
+    box-shadow: 2px 2px rgb(0, 0, 0);
+    font-weight: bold;
+    padding: 3px;
+}
+.btn {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+.nav_bar {
+    width: 1000px;
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+}
+.col {
+    width: 800px;
+    margin: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.row {
+    width: 800px;
+    margin: 50px 0 20px 20px;
+}
+
+h4 {
+    margin: 30px 100px 5px 0px;
+}
